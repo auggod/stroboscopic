@@ -1,8 +1,8 @@
 {
   "name": "stroboscopic",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Strobe lights",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server -p 8089" 
