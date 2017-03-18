@@ -1,0 +1,23 @@
+{
+  "name": "stroboscopic",
+  "authors": [
+    "Augustin Godiscal <dev@auggod.io>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.6.0",
+    "webcomponentsjs": "^0.7.22",
+    "lodash": "^4.13.1"
+  }
+}

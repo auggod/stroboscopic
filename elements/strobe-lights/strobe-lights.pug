@@ -1,0 +1,49 @@
+link(rel="import" href="../../bower_components/polymer/polymer.html")
+
+dom-module#strobe-lights
+  template
+    style
+      :stylus
+        :host
+          background #fff
+          position absolute
+          width 100%
+          height 100%
+    content
+  script
+    :livescript
+      Polymer do
+        is: 'strobe-lights'
+        properties:
+          playing:
+            type: Boolean
+            value: false
+        listeners:
+          click: 'handleClick'
+          mousemove: 'handleMouseMove'
+        handleMouseMove: (e) ->
+          @tick!
+        handleClick: (e) ->
+          if @playing
+            @stop!
+            @set('playing', false)
+          else
+            @start!
+            @set('playing', true)
+        loop: ->
+          @requestID = window.requestAnimationFrame(this.loop.bind(this))
+          @tick!
+        tick: ->
+          min = -1
+          max = 1
+          random = Math.floor(Math.random() * (max - min + 1)) + min
+          hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')'
+          if random == 1
+            this.style.background = hue
+        start: ->
+          unless @requestID
+            @loop!
+        stop: ->
+          if @requestID
+            window.cancelAnimationFrame @requestID
+            @requestID = undefined
